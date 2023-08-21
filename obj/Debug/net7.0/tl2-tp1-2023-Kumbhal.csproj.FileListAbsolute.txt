@@ -1,0 +1,15 @@
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\bin\Debug\net7.0\tl2-tp1-2023-Kumbhal.exe
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\bin\Debug\net7.0\tl2-tp1-2023-Kumbhal.deps.json
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\bin\Debug\net7.0\tl2-tp1-2023-Kumbhal.runtimeconfig.json
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\bin\Debug\net7.0\tl2-tp1-2023-Kumbhal.dll
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\bin\Debug\net7.0\tl2-tp1-2023-Kumbhal.pdb
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.csproj.AssemblyReference.cache
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.AssemblyInfoInputs.cache
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.AssemblyInfo.cs
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.dll
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\refint\tl2-tp1-2023-Kumbhal.dll
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.pdb
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\tl2-tp1-2023-Kumbhal.genruntimeconfig.cache
+C:\Users\Alumno\Desktop\tl2-tp1-2023-Kumbhal\obj\Debug\net7.0\ref\tl2-tp1-2023-Kumbhal.dll

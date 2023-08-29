@@ -8,8 +8,8 @@ public class Cadete
         private string? nombre;
         private string? direccion;
         private string? telefono;
-
         private List<Pedido>? listadoPedidos;
+        public List<Pedido>? ListadoPedidos { get => ListadoPedidos; set => ListadoPedidos = value; }
 
 
         public Cadete(int id, string nombre, string direccion, string telefono){
@@ -17,19 +17,22 @@ public class Cadete
             this.nombre = nombre;
             this.direccion = direccion;
             this.telefono = telefono;
-            this.listadoPedidos = new List<Pedido>(); 
-
+            this.ListadoPedidos = new List<Pedido>();
         }
-    
+
+
         public void agregarPedido(Pedido pedidoNuevo){
-            this.listadoPedidos?.Add(pedidoNuevo);
+            this.ListadoPedidos?.Add(pedidoNuevo);
             Console.WriteLine("El pedido fue agregado");
         }
-        public int jornalACobrar(){
-            int cantidadDePedidos = (this.listadoPedidos!.Count() * 500);
+        private int jornalACobrar(){
+            int cantidadDePedidos = (ListadoPedidos!.Count()) * 500;
             return cantidadDePedidos;
         }
+        public void listarInformacion(){
+            Console.WriteLine("\nID: "+id);
+            Console.WriteLine("\nNombre: "+nombre);
+            Console.WriteLine("\nTelefono Cadete: "+telefono);
+        }
     }   
-
-    
 }

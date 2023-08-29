@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alumno\\Desktop\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj": {}
+    "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alumno\\Desktop\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj": {
+    "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
+        "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
         "projectName": "tl2-tp1-2023-Kumbhal",
-        "projectPath": "C:\\Users\\Alumno\\Desktop\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
+        "projectPath": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
         "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alumno\\Desktop\\tl2-tp1-2023-Kumbhal\\obj\\",
+        "outputPath": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

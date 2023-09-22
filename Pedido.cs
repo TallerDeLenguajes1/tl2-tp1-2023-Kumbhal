@@ -7,9 +7,7 @@ public class Pedido
     {
         public enum Estados {
             Pendiente,
-            Encamino,
-            Entregado,
-            Cancelado,
+            Entregado
         }
         private int numero;
 
@@ -34,17 +32,11 @@ public class Pedido
             Console.WriteLine("Telefono: " + cliente.Telefono);
         } 
 
-        public void cambiarEstado(int tipoCambio){
-            int caso = (int)estado;
-            if(tipoCambio == 1){
-                if(caso == 0){
-                    estado = Estados.Encamino;
-                }else{
-                    estado = Estados.Entregado;
-                }
-            }else{
-                estado = Estados.Cancelado;
-            }
+        public void cambiarEstado(){
+            estado = Estados.Entregado;
+        }
+        public Estados getEstado(){
+            return estado;
         }
     }
 }

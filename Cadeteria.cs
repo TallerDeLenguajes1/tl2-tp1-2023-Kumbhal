@@ -36,7 +36,9 @@ public class Cadeteria
             Pedido pedidoAMover;
             pedidoAMover = cadeteAsignado.ListadoPedidos.Find(pedidobuscado => pedidobuscado.Numero == idPedidBusc);
         }
-        public void eliminarPedido(){}
+        public void eliminarPedido(int idPedido){
+            Pedido pedidoAEliminar =
+        }
         
         
     }      

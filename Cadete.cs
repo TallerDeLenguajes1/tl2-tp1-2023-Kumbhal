@@ -26,13 +26,19 @@ public class Cadete
             Console.WriteLine("El pedido fue agregado");
         }
         private int jornalACobrar(){
-            int cantidadDePedidos = (ListadoPedidos!.Count()) * 500;
+            List<Pedido> pedidosEntregados = listadoPedidos.FindAll(pedido => pedido.getEstado() == Estados.Entregado);
+            int cantidadDePedidos = (pedidosEntregados.Count()) * 500;
             return cantidadDePedidos;
         }
         public void listarInformacion(){
             Console.WriteLine("\nID: "+id);
             Console.WriteLine("\nNombre: "+nombre);
             Console.WriteLine("\nTelefono Cadete: "+telefono);
+        }
+        public void cambiarEstado(int idPedido){
+            Pedido pedidoACambiar = listadoPedidos.Find(pedido => pedido.numero == idPedido);
+            pedidoACambiar.cambiarEstado();
+            Console.WriteLine("\nSe cambio el estado del pedido.");
         }
     }   
 }

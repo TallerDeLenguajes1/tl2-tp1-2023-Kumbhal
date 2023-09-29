@@ -1,47 +1,40 @@
-﻿
-
+﻿using System.IO;
+using System.Collections;
 using Pedidos;
+using Cadeterias;
+using Cadetes;
 
-int numeroDePedido = 0;
+int opcion = 0;
+string? stringNom = "";
+string? stringDir = "";
+string? stringTel = "";
+Console.WriteLine("Ingrese el nombre de la cadeteria: ");
+stringNom = Console.ReadLine();
+Console.WriteLine("Ingrese el telefono de la cadeteria: ");
+stringTel = Console.ReadLine();
+Cadeteria cadeteriaNueva = new Cadeteria(stringNom, stringTel);
 
-Console.WriteLine("---SISTEMA---");
-Console.WriteLine("1 - Dar alta pedido");
-Console.WriteLine("2 - Asigar Cadete");
-Console.WriteLine("3 - Cambiar estado pedido");
-Console.WriteLine("4 - Reasignar pedido");
-Console.WriteLine("5 - Salir");
-Console.WriteLine("Ingrese una opcion: ");
-String? opcion = Console.ReadLine();
-
-
-switch (opcion){
-    case "1":
-        crearPedido();
-        break;
-    case "2":
-        
-        break;
+while(opcion != 5){
+    menuCadeteria();
+    Console.WriteLine("Ingrese la opcion: ");
+    int.TryParse(Console.ReadLine(), out opcion);
+    switch(opcion){
+        case 1:
+            Cadete cadeteNuevo;
+            Console.WriteLine("Ingrese el nombre del cadete: ");
+            stringNom = Console.ReadLine();
+            Console.WriteLine("Ingrese la direccion del cadete: ");
+            stringDir = Console.ReadLine();
+            Console.WriteLine("Ingrese el telefono del cadete: ");
+            stringTel = Console.ReadLine();
+            cadeteNuevo = new Cadete ((cadeteriaNueva.cantidadCadetes() + 1),stringNom, stringDir, stringTel);
+            break;
+        case 2:
+            Pedido pedidoNuevo;
+            Console.WriteLine();
+            break;
+    }
 }
-
-
-void crearPedido(){
-    numeroDePedido += 1;
-    Console.WriteLine("--- Alta de pedido ---");
-    Console.WriteLine("INFORMACION DEL CLIENTE");
-    Console.WriteLine("Ingrese el nombre del cliente");
-    String? nombreCliente = Console.ReadLine();
-    Console.WriteLine("direccion cliente");
-    String? direccionCliente = Console.ReadLine();
-    Console.WriteLine("telefono cliente");
-    String? telefonoCliente = Console.ReadLine();
-    Console.WriteLine("datos de referencia cliente");
-    String? refenciaCliente = Console.ReadLine();
-    Console.WriteLine("\nINFORMACION DEL PEDIDO");
-    Console.WriteLine("Observaciones del pedido: ");
-    String? observacionesPedido = Console.ReadLine();
-
-    Pedido nuevoPedido = new Pedido(numeroDePedido, observacionesPedido, nombreCliente, direccionCliente, telefonoCliente, refenciaCliente);
-    Console.WriteLine("Pedido Creado");
-    return;
+void menuCadeteria(){
+    Console.WriteLine("1) Agregar Cadete.\n 2) Asignar pedido a cadete.\n 3)Listar cadetes ");
 }
-

@@ -6,8 +6,8 @@ namespace Pedidos
 public class Pedido
     {
         public enum Estados {
-            Pendiente,
-            Entregado
+            Pendiente = 1,
+            Entregado = 2
         }
         private int numero;
 

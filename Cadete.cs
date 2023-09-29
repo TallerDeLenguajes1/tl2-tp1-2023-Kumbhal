@@ -26,7 +26,7 @@ public class Cadete
             Console.WriteLine("El pedido fue agregado");
         }
         private int jornalACobrar(){
-            List<Pedido> pedidosEntregados = listadoPedidos.FindAll(pedido => pedido.getEstado() == Estados.Entregado);
+            List<Pedido> pedidosEntregados = listadoPedidos.FindAll(pedido => pedido.getEstado() == Pedido.Estados.Entregado);
             int cantidadDePedidos = (pedidosEntregados.Count()) * 500;
             return cantidadDePedidos;
         }
@@ -36,7 +36,7 @@ public class Cadete
             Console.WriteLine("\nTelefono Cadete: "+telefono);
         }
         public void cambiarEstado(int idPedido){
-            Pedido pedidoACambiar = listadoPedidos.Find(pedido => pedido.numero == idPedido);
+            Pedido pedidoACambiar = listadoPedidos.Find(pedido => pedido.Numero == idPedido);
             pedidoACambiar.cambiarEstado();
             Console.WriteLine("\nSe cambio el estado del pedido.");
         }

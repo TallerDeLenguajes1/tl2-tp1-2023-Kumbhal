@@ -14,12 +14,27 @@ public class Cadeteria
             this.telefono = telefono;  
             listadoCadetes = new List<Cadete>();
         }
-        public void asignarPedido(Pedido pedidoNuevo, Cadete cadeteAsignar){
-            if(listadoCadetes.Contains(cadeteAsignar)){
-                cadeteAsignar.ListadoPedidos.Add(pedidoNuevo);
+
+        public int cantidadCadetes(){
+            return listadoCadetes.Count();
+        }
+        private bool listadoCadetesVacio(){
+            if(listadoCadetes.Count() == 0){
+                return true;
             }else{
-                listadoCadetes.Add(cadeteAsignar);
-                cadeteAsignar.ListadoPedidos.Add(pedidoNuevo);
+                return false;
+            }
+        }
+        public void asignarPedido(Pedido pedidoNuevo, Cadete cadeteAsignar){
+            if(!listadoCadetesVacio()){
+                if(listadoCadetes.Contains(cadeteAsignar)){
+                    cadeteAsignar.ListadoPedidos.Add(pedidoNuevo);
+                }else{
+                    listadoCadetes.Add(cadeteAsignar);
+                    cadeteAsignar.ListadoPedidos.Add(pedidoNuevo);
+                }
+            }else{
+                Console.WriteLine("No hay cadetes registrados para asignar pedido. ");
             }
         }
         public void agregarCadete(Cadete nuevoCadete){
@@ -35,11 +50,8 @@ public class Cadeteria
         public void reasignarPedidos(int idPedidBusc, Cadete cadeteAsignado,Cadete cadeteACambiar){
             Pedido pedidoAMover;
             pedidoAMover = cadeteAsignado.ListadoPedidos.Find(pedidobuscado => pedidobuscado.Numero == idPedidBusc);
+
         }
-        public void eliminarPedido(int idPedido){
-            Pedido pedidoAEliminar =
-        }
-        
         
     }      
 

@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Alumno\\.nuget\\packages\\": {}
+    "C:\\Users\\Leandro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
+      "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\Programación\\TdL2\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
       "projectName": "tl2-tp1-2023-Kumbhal",
-      "projectPath": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
-      "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alumno\\Desktop\\Cadeteria\\tl2-tp1-2023-Kumbhal\\obj\\",
+      "projectPath": "C:\\Users\\Leandro\\Desktop\\Programación\\TdL2\\tl2-tp1-2023-Kumbhal\\tl2-tp1-2023-Kumbhal.csproj",
+      "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leandro\\Desktop\\Programación\\TdL2\\tl2-tp1-2023-Kumbhal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

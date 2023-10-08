@@ -9,7 +9,7 @@ public class Cadete
         private string? direccion;
         private string? telefono;
         private List<Pedido>? listadoPedidos;
-        public List<Pedido>? ListadoPedidos { get => ListadoPedidos; set => ListadoPedidos = value; }
+        public List<Pedido>? ListadoPedidos { get => listadoPedidos;}
 
 
         public Cadete(int id, string nombre, string direccion, string telefono){
@@ -17,28 +17,43 @@ public class Cadete
             this.nombre = nombre;
             this.direccion = direccion;
             this.telefono = telefono;
-            this.ListadoPedidos = new List<Pedido>();
+            this.listadoPedidos = new List<Pedido>();
         }
-
-
-        public void agregarPedido(Pedido pedidoNuevo){
-            this.ListadoPedidos?.Add(pedidoNuevo);
+        public int GetIdCadete(){
+            return id;
+        }
+        public void AgregarPedido(Pedido pedidoNuevo){
+            this.listadoPedidos.Add(pedidoNuevo);
             Console.WriteLine("El pedido fue agregado");
         }
-        private int jornalACobrar(){
-            List<Pedido> pedidosEntregados = listadoPedidos.FindAll(pedido => pedido.getEstado() == Pedido.Estados.Entregado);
-            int cantidadDePedidos = (pedidosEntregados.Count()) * 500;
-            return cantidadDePedidos;
+        public int CantidadPedidosCadete(){
+            return listadoPedidos.Count();
         }
-        public void listarInformacion(){
+        public int CantidadPedidosEntregados(){
+            List<Pedido> pedidosEntregados = listadoPedidos!.FindAll(pedido => pedido.getEstado() == Pedido.Estados.Entregado);
+            return pedidosEntregados.Count();
+        }
+        public void MostrarListaPedidos(){
+            foreach (var pedido in listadoPedidos){
+                Console.WriteLine("ID Pedido: "+pedido.Numero);
+                pedido.verDatosCliente();
+            }
+        }
+        public int JornalACobrar(){
+            int jornal = CantidadPedidosEntregados() * 500;
+            return jornal;
+        }
+        public void ListarInformacion(){
             Console.WriteLine("\nID: "+id);
             Console.WriteLine("\nNombre: "+nombre);
-            Console.WriteLine("\nTelefono Cadete: "+telefono);
         }
-        public void cambiarEstado(int idPedido){
+        public void CambiarEstado(int idPedido){
             Pedido pedidoACambiar = listadoPedidos.Find(pedido => pedido.Numero == idPedido);
-            pedidoACambiar.cambiarEstado();
-            Console.WriteLine("\nSe cambio el estado del pedido.");
+            if (pedidoACambiar != null){
+                pedidoACambiar.CambiarEstado();
+            }else{
+                Console.WriteLine("\nNo se encontró el id del pedido.");
+            }
         }
     }   
 }

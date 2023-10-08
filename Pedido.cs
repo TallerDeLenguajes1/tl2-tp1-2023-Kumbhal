@@ -16,7 +16,7 @@ public class Pedido
         private Estados estado;
 
         private Cliente? cliente;
-        public int Numero { get => numero; set => numero = value; }
+        public int Numero { get => numero;}
 
         public Pedido(int numero, string observaciones, string nombre, string direccion, string telefono, string datosRefDireccion){
             this.numero =  numero;
@@ -28,11 +28,10 @@ public class Pedido
             Console.WriteLine("La direccion del cliente: " + cliente!.Direccion + cliente.DatosRefDireccion);
         }
         public void verDatosCliente(){
-            Console.WriteLine("Nombre: " + cliente!.Nombre);
-            Console.WriteLine("Telefono: " + cliente.Telefono);
+            Console.WriteLine("\nNombre: " + cliente.Nombre);
+            Console.WriteLine("\nTelefono: " + cliente.Telefono);
         } 
-
-        public void cambiarEstado(){
+        public void CambiarEstado(){
             estado = Estados.Entregado;
         }
         public Estados getEstado(){

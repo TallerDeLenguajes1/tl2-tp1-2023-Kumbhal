@@ -3,7 +3,7 @@ using System.Collections;
 using Pedidos;
 using Cadeterias;
 using Cadetes;
-using Informes;
+using AccesoADato;
 
 int opcion = 0;
 string? stringNom = "";
@@ -14,11 +14,22 @@ string? stringDatRef = "";
 int varInt = 0;
 int idCadete = 0;
 int idPedido = 0;
-Informe cargaDatos = new Informe();
+Cadeteria cadeteriaNueva;
+Console.WriteLine("\n==========INTERFAZ USUARIO==========");
+Console.WriteLine("\nCARGA DE DATOS DE CADETERIA Y CADETES DESDE ARCHIVO:");
+Console.WriteLine("\n1) Para cargar datos desde CSV");
+Console.WriteLine("\n2) Para cargar datos desde JSON");
+int.TryParse(Console.ReadLine(), out varInt);
+if (varInt == 1){
+    AccesoADatos cargarDatosCSV = new AccesoCSV();
+    cadeteriaNueva = cargarDatosCSV.CargarDatosCadeteria("Cadeteria.csv");
+    cadeteriaNueva.CargarListadoCadetes(cargarDatosCSV.CargarDatosCadete("Cadetes.csv"));
+}else{
+    AccesoADatos cargarDatosJSON = new AccesoJSON();
+    cadeteriaNueva = cargarDatosJSON.CargarDatosCadeteria("Cadeteria.JSON");
+    cadeteriaNueva.CargarListadoCadetes(cargarDatosJSON.CargarDatosCadete("Cadetes.JSON"));     
+}
 Random numeroRandom = new Random();
-List<Pedido> listaPedidosAsignar = new List<Pedido>();
-Cadeteria cadeteriaNueva = cargaDatos.CargarDatosCadeteria("Cadeteria.csv");
-cadeteriaNueva.CargarListadoCadetes(cargaDatos.CargarDatosCadete("Cadetes.csv"));
 
 while(opcion != 5){
     cadeteriaNueva.ListarInformacionCadeteria();
@@ -37,41 +48,37 @@ while(opcion != 5){
             stringObsPed = Console.ReadLine();
             Console.WriteLine("\nIngrese datos de referencia del cliente: ");
             stringDatRef = Console.ReadLine();
-            listaPedidosAsignar.Add(cadeteriaNueva.CrearPedido(numeroRandom.Next(1,100), stringNom, stringDir, stringTel, stringObsPed, stringDatRef));
+            cadeteriaNueva.CrearPedido(numeroRandom.Next(1,100), stringNom, stringDir, stringTel, stringObsPed, stringDatRef);
             break;
         case 2:
             Console.WriteLine("\n==========LISTADO CADETES==========");
             cadeteriaNueva.listarCadetes();
             Console.WriteLine("\nIngrese el id del cadete para asignar pedido: ");
             int.TryParse(Console.ReadLine(), out idCadete);
-            cadeteriaNueva.ListarPedidosPendientes(listaPedidosAsignar);
+            cadeteriaNueva.ListarPedidosPendientes();
             Console.WriteLine("\nIngrese el ID del pedido: ");
             int.TryParse(Console.ReadLine(), out idPedido);
-            cadeteriaNueva.AsignarPedido(listaPedidosAsignar, idPedido,idCadete);
+            cadeteriaNueva.AsignarCadeteAPedido(idPedido,idCadete);
             Console.Clear();
             break;
         case 3:
             cadeteriaNueva.listarCadetes();
             Console.WriteLine("Ingrese el numero del cadete: ");
             int.TryParse(Console.ReadLine(), out idCadete);
-            cadeteriaNueva.PedidosCadete(idCadete);
+            cadeteriaNueva.MostrarPedidosCadete(idCadete);
             Console.WriteLine("Ingrese el numero de pedido: ");
             int.TryParse(Console.ReadLine(), out idPedido);
-            cadeteriaNueva.CambiarEstadoPedido(idCadete, varInt);
+            cadeteriaNueva.CambiarEstadoPedido(idPedido);
             Console.Clear();
             break;
         case 4:
-            cadeteriaNueva.listarCadetes();
-            Console.WriteLine("Ingrese el ID del cadete a cambiar el pedido: ");
-            int.TryParse(Console.ReadLine(), out varInt);
-            Console.Clear();
             cadeteriaNueva.listarCadetes();
             Console.WriteLine("Ingrese el ID del cadete que recibe el pedido: ");
             int.TryParse(Console.ReadLine(), out idCadete);
             Console.Clear();
             Console.WriteLine("Ingrese el ID del pedido: ");
             int.TryParse(Console.ReadLine(), out idPedido);
-            cadeteriaNueva.ReasignarPedido(idPedido, idCadete, varInt);
+            cadeteriaNueva.ReasignarPedido(idPedido, idCadete);
             break;
     }
 }

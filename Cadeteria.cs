@@ -23,7 +23,7 @@ public class Cadeteria
         private bool ListadoCadetesVacio(){
             return (CantidadCadetes() == 0);
         }
-        public void MostrarPedidosCadete(int idCadete){
+        public List<Pedido> MostrarPedidosCadete(int idCadete){
             List<Pedido> listadoPedidosCadete = listadoPedidos.FindAll(pedido => pedido.IdCadete == idCadete);
             if (listadoPedidosCadete != null){
                 foreach (var pedido in listadoPedidosCadete){
@@ -31,18 +31,24 @@ public class Cadeteria
                     pedido.verDatosCliente();
                 }
             }
+            return listadoPedidosCadete;
         }
-        public void CargarListadoCadetes(List<Cadete> listadoCadetesCSV){
-            this.listadoCadetes = listadoCadetesCSV;
+        public List<Cadete> CargarListadoCadetes(List<Cadete> listadoCadetesDatos){
+            this.listadoCadetes = listadoCadetesDatos;
+            return listadoCadetesDatos;
         }
-        public void CrearPedido(int numPedido, string? obsPedido, string? nombreCliente, string? direccionCliente, string? telefonoCliente, string?datosRef){
+        public Pedido CrearPedido(int numPedido, string? obsPedido, string? nombreCliente, string? direccionCliente, string? telefonoCliente, string?datosRef){
             Pedido nuevoPedido = new Pedido(numPedido, obsPedido, nombreCliente, direccionCliente, telefonoCliente, datosRef);
-            listadoPedidos.Add(nuevoPedido);
+            return nuevoPedido;
         }
-        public void AsignarCadeteAPedido(int numPedido, int idCadete){
+        public Pedido AgregarPedidoLista(Pedido nuevoPedido){
+            listadoPedidos.Add(nuevoPedido);
+            return nuevoPedido;
+        }
+        public Pedido AsignarCadeteAPedido(int numPedido, int idCadete){
+            Pedido pedidoBuscado = listadoPedidos.Find(pedido => pedido.Numero == numPedido);
             if(!ListadoCadetesVacio()){
                     if (listadoPedidos != null){
-                        Pedido pedidoBuscado = listadoPedidos.Find(pedido => pedido.Numero == numPedido);
                         pedidoBuscado.AsignarCadete(idCadete);
                     }else{
                         Console.WriteLine("No hay pedidos para asignar.");
@@ -50,29 +56,31 @@ public class Cadeteria
             }else{
                 Console.WriteLine("No hay cadetes registrados para asignar pedido. ");
             }
+            return pedidoBuscado;
         }
-        public void CambiarEstadoPedido(int idPedido){
+        public Pedido CambiarEstadoPedido(int idPedido){
             Pedido pedidoBuscado = listadoPedidos.Find(pedido => pedido.Numero == idPedido);
             if(pedidoBuscado != null){
                 pedidoBuscado.CambiarEstado();
             }else{
                 Console.WriteLine("No se encontro un pedido con ese ID");
             }
+            return pedidoBuscado;
         }
-        public void AgregarCadete(Cadete nuevoCadete){
+        public Cadete AgregarCadete(Cadete nuevoCadete){
             listadoCadetes?.Add(nuevoCadete);
             Console.WriteLine("Se agrego nuevo cadete");
-            return; 
+            return nuevoCadete; 
         }
         public void listarCadetes(){
             foreach (var cadete in listadoCadetes){
                 cadete.ListarInformacion();
             }
         }
-        public void ReasignarPedido(int idPedidBusc,int cadeteAsignado){
+        public Pedido ReasignarPedido(int idPedidBusc,int cadeteAsignado){
             Pedido pedidoBuscado;
+            pedidoBuscado = listadoPedidos.Find(pedido => pedido.Numero == idPedidBusc);
             if(listadoCadetes != null){
-                pedidoBuscado = listadoPedidos.Find(pedido => pedido.Numero == idPedidBusc);
                 if (pedidoBuscado != null){
                     pedidoBuscado.AsignarCadete(cadeteAsignado);
                 }else{
@@ -81,6 +89,7 @@ public class Cadeteria
             }else{
                 Console.WriteLine("Se produjo un error. ");
             }
+            return pedidoBuscado;
         }
         public void MostrarInforme(){
             int montoTotalJornada = 0;
